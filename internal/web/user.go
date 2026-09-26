@@ -111,9 +111,12 @@ func (userHdl *UserHandler) Login(ctx *gin.Context) {
 	case nil:
 		sess := sessions.Default(ctx)
 		sess.Set("userId", u.Id)
+		sess.Set("email", u.Email)
 		sess.Options(sessions.Options{
 			// 十五分钟
-			MaxAge: 900,
+			MaxAge:   900,
+			HttpOnly: true,
+			Secure:   ctx.Request.TLS != nil,
 		})
 		err = sess.Save()
 		if err != nil {
@@ -122,7 +125,7 @@ func (userHdl *UserHandler) Login(ctx *gin.Context) {
 		}
 		ctx.String(http.StatusOK, "登录成功")
 	case service.ErrInvalidUserOrPassword:
-		ctx.String(http.StatusOK, "用户名或者密码不对")
+		ctx.String(http.StatusUnauthorized, "用户名或者密码不对")
 	default:
 		ctx.String(http.StatusOK, "系统错误")
 	}
@@ -133,5 +136,9 @@ func (userHdl *UserHandler) Edit(ctx *gin.Context) {
 }
 
 func (userHdl *UserHandler) Profile(ctx *gin.Context) {
-	ctx.String(http.StatusOK, "这是 profile")
+	sess := sessions.Default(ctx)
+	email, _ := sess.Get("email").(string)
+	ctx.JSON(http.StatusOK, gin.H{
+		"Email": email,
+	})
 }
