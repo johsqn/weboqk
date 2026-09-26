@@ -4,8 +4,8 @@ import (
 	"context"
 	"errors"
 
-	"github.com/johsqn/weboqk/internal/domain"
-	"github.com/johsqn/weboqk/internal/repository"
+	"github.com/johsqn/webook/internal/domain"
+	"github.com/johsqn/webook/internal/repository"
 	"golang.org/x/crypto/bcrypt"
 )
 

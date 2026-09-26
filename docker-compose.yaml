@@ -5,9 +5,9 @@ services:
     restart: always
     command: --default-authentication-plugin=mysql_native_password
     environment:
-      MYSQL_DATABASE: weboqk
-      MYSQL_USER: weboqk
-      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-weboqk}
+      MYSQL_DATABASE: webook
+      MYSQL_USER: webook
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-webook}
       MYSQL_RANDOM_ROOT_PASSWORD: "yes"
     ports:
       - "13306:3306"

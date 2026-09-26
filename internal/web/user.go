@@ -6,8 +6,8 @@ import (
 	regexp "github.com/dlclark/regexp2"
 	"github.com/gin-contrib/sessions"
 	"github.com/gin-gonic/gin"
-	"github.com/johsqn/weboqk/internal/domain"
-	"github.com/johsqn/weboqk/internal/service"
+	"github.com/johsqn/webook/internal/domain"
+	"github.com/johsqn/webook/internal/service"
 )
 
 const (

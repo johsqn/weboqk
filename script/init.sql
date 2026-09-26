@@ -1,2 +1,2 @@
-create database weboqk;
-use weboqk;
+create database if not exists webook;
+use webook;

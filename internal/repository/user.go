@@ -3,8 +3,8 @@ package repository
 import (
 	"context"
 
-	"github.com/johsqn/weboqk/internal/domain"
-	"github.com/johsqn/weboqk/internal/repository/dao"
+	"github.com/johsqn/webook/internal/domain"
+	"github.com/johsqn/webook/internal/repository/dao"
 )
 
 var (

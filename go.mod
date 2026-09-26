@@ -1,4 +1,4 @@
-module github.com/johsqn/weboqk
+module github.com/johsqn/webook
 
 go 1.27.0
 
