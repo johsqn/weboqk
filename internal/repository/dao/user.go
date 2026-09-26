@@ -16,7 +16,7 @@ var (
 
 // The User struct represents the user table in the database.
 type User struct {
-	Id       int64  `gorm:"primaryKey,autoIncrement"`
+	Id       int64  `gorm:"primaryKey;autoIncrement"`
 	Email    string `gorm:"unique"`
 	Password string
 
@@ -58,6 +58,6 @@ func (dao *UserDAO) Insert(ctx context.Context, u User) error {
 
 func (dao *UserDAO) FindByEmail(ctx context.Context, email string) (User, error) {
 	var u User
-	err := dao.db.WithContext(ctx).Where(&User{Email: email}).First(&u).Error
+	err := dao.db.WithContext(ctx).Where("email = ?", email).First(&u).Error
 	return u, err
 }
